@@ -31,8 +31,8 @@ class ButterBandpass:
         self.zi = sosfilt_zi(self.sos)
         self.z, _ = sosfilt(self.sos, data, zi = self.zi * data[0])
 
-    def butter_bandpass_filter_again(self):
-        self.butter_bandpass_filter_once()
+    def butter_bandpass_filter_again(self, data):
+        self.butter_bandpass_filter_once(data)
         self.z2, _ = sosfilt(self.sos, self.z, zi = self.zi * self.z[0])
 
     def butter_bandpass_for_back_filter(self, data):
