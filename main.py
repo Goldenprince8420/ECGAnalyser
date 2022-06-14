@@ -1,26 +1,23 @@
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
 import seaborn as sns
 import warnings
 
-from scipy.signal import butter, sosfilt, sosfilt_zi, sosfiltfilt, lfilter, lfilter_zi, filtfilt, sosfreqz, resample
-# from utils import hamilton_detector, christov_detector, findpeaks, engzee_detector
-# from ecg_detectors.ecgdetectors import Detectors, MWA, panPeakDetect, searchBack
+from data import *
+
 
 np.random.seed(256)
 sns.set()
-
 warnings.filterwarnings('ignore')
 
 
 if __name__ == "__main__":
-    data = None
+    print("Started..")
     fs = 200
     lowcut = 0.05 * 3.3  # 9.9 beats per minute
     highcut = 15  # 900 beats per minute
-    
+    data = Data("data", "Lviv-Biometric-Data-Set")
+    data.describe(user_id = 1)
+    data_raw = data.load_raw(user_id = 1, sample_id = 1)
+    print("Done!!")
 
-# Sample rate and Desired Cutoff Frequencies
 
 
